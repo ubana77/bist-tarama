@@ -127,6 +127,11 @@ def scan_symbol(symbol):
         df = ticker.history(period="3mo", interval="1d")
 
         if df is not None and len(df) >= 22:
+            # ⚠️ Bozuk/eksik barları temizle (özellikle son bar boş olabiliyor)
+            df = df.dropna(subset=['Open', 'High', 'Low', 'Close'])
+            if len(df) < 22:
+                return None
+            df = df.copy()
             df['Vol_SMA21'] = df['Volume'].rolling(window=21).mean()
             last_bar = df.iloc[-1]
 
