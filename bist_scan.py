@@ -154,8 +154,8 @@ def scan_symbol(symbol):
                     "Gövde Oranı (%)": round(body_ratio, 1),
                     "Hacim / 21G Ort (Kat)": round(vol_ratio, 2)
                 }
-    except Exception:
-        pass
+    except Exception as e:
+         print(f"❌ {symbol}: {type(e).__name__}: {e}")
     return None
 
 
