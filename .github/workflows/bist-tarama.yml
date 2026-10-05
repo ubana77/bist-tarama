@@ -2,8 +2,9 @@ name: BIST Tarama
 
 on:
   schedule:
-    # Her iş günü 15:45 UTC = 18:45 Türkiye saati
-    - cron: '45 15 * * 1-5'
+    # 15:30 UTC = 18:30 Türkiye saati
+    # Borsa 18:00'de kapanır, verilerin oturması için 18:30 idealdir.
+    - cron: '30 15 * * 1-5'
   workflow_dispatch:
 
 permissions:
@@ -26,10 +27,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install yfinance pandas openpyxl requests
-          
-      - name: yfinance test
-        run: python test_yf.py
-        
+
       - name: Tarama scriptini calistir
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
