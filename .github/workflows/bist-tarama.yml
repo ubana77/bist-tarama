@@ -4,7 +4,7 @@ on:
   schedule:
     # 15:30 UTC = 18:30 Türkiye saati
     # Borsa 18:00'de kapanır, verilerin oturması için 18:30 idealdir.
-    - cron: '30 15 * * 1-5'
+    - cron: '30 18 * * 1-5'
   workflow_dispatch:
 
 permissions:
