@@ -2,7 +2,7 @@ import os
 import warnings
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
-
+from zoneinfo import ZoneInfo
 import pandas as pd
 import requests
 import yfinance as yf
@@ -191,7 +191,7 @@ def build_telegram_message(signals, scan_time_str, total_symbols):
 
 # ---------------------- ANA AKIŞ ----------------------
 if __name__ == "__main__":
-    scan_time = datetime.now()
+    scan_time = datetime.now(ZoneInfo("Europe/Istanbul"))
     scan_time_str = scan_time.strftime("%d.%m.%Y %H:%M:%S")
 
     print("🚀 'yfinance' Tabanlı Hacimli Yeşil Mum Taraması Başlatılıyor...")
