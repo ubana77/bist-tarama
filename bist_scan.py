@@ -180,9 +180,9 @@ def build_telegram_message(signals, scan_time_str, total_symbols):
     for s in signals:
         lines.append(
             f"🟢 <b>{s['Hisse']}</b>\n"
-            f"   💰 Fiyat: <code>{s['Kapanış Fiyatı']:.2f}</code>\n"
-            f"   📏 Gövde: <code>%{s['Gövde Oranı (%)']:.1f}</code>\n"
-            f"   📈 Hacim: <code>{s['Hacim / 21G Ort (Kat)']:.2f}x</code>"
+            f"   Fiyat: <code>{s['Kapanış Fiyatı']:.2f}</code>\n"
+            f"   Gövde: <code>%{s['Gövde Oranı (%)']:.1f}</code>\n"
+            f"   Hacim: <code>{s['Hacim / 21G Ort (Kat)']:.2f}x</code>"
         )
     lines.append("━━━━━━━━━━━━━━━━━━━━")
     lines.append("<i>⚠️ Yatırım tavsiyesi değildir.</i>")
